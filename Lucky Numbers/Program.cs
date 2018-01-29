@@ -30,16 +30,15 @@ namespace Lucky_Numbers
                 Console.WriteLine("\nPlease enter an ending number");//set up variables at the beginning, and added line breaks this week to the project for a cleaner look.  
 
                 endNum = int.Parse(Console.ReadLine());
-                
-                
+
+
                 for (int i = 0; i < lottoNumArray.Length; i++) // I was thinking the solution to the stretch might have involved the test expression.  I also tried nested for loop and and if statement 
-                    //within the for loop.  
+                                                               //within the for loop.  
                 {
                     lottoNumArray[i] = r.Next(startNum, endNum);
-
                 }
 
-
+                
                 Console.WriteLine("\nPlease select your lucky 6 numbers!");
                 for (int i = 0; (i < userChoiceArray.Length); i++)
                 {
@@ -58,20 +57,7 @@ namespace Lucky_Numbers
                     }
                 }//is there a better way to do this? had to take the while statement outside of the previous for statement because the code kept on crashing.  The 12 or statements
                //seemed like overkill, but it worked.    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+               
                 Console.WriteLine("\nMatch all 6 Lucky Numbers correctly and you could win a JACKPOT of $" + (prizeMoney * lottoNumArray.Length));
 
                 for (int i = 0; i < lottoNumArray.Length; i++)
@@ -88,18 +74,9 @@ namespace Lucky_Numbers
                     {
                         if (userChoiceArray[i] == lottoNumArray[k])
                         { correctGuess++; }
-
-
-
-
-
-
+                        
                     }
-
-
-
-
-
+                    
                 }
                 Console.WriteLine("\nYou have matched " + correctGuess + " numbers and won $" + (prizeMoney * correctGuess));
                 Console.WriteLine("\nWould you like to try your luck again?");
@@ -107,14 +84,7 @@ namespace Lucky_Numbers
 
             } while (playerAnswer != "no");
             Console.WriteLine("\nThanks for playing!");
-
-
-
-
-
-
-
-
+            
         }
 
 
