@@ -11,8 +11,8 @@ namespace Lucky_Numbers
         static void Main(string[] args)
 
         {
-            string playerAnswer = " ";
-            do
+            string playerAnswer = " ";//
+        do
             {
                 int startNum;
                 int endNum = 0;
@@ -27,19 +27,13 @@ namespace Lucky_Numbers
                 Console.WriteLine("\nPlease enter a starting number");
                 startNum = int.Parse(Console.ReadLine());
 
-                Console.WriteLine("\nPlease enter an ending number");
+                Console.WriteLine("\nPlease enter an ending number");//set up variables at the beginning, and added line breaks this week to the project for a cleaner look.  
 
                 endNum = int.Parse(Console.ReadLine());
-                if (endNum < startNum)
-
-                {
-                    Console.WriteLine("\nPlease enter an ending number greater than the first number");
-                    endNum = int.Parse(Console.ReadLine());
-                }
-
-
-
-                for (int i = 0; i < lottoNumArray.Length; i++)
+                
+                
+                for (int i = 0; i < lottoNumArray.Length; i++) // I was thinking the solution to the stretch might have involved the test expression.  I also tried nested for loop and and if statement 
+                    //within the for loop.  
                 {
                     lottoNumArray[i] = r.Next(startNum, endNum);
 
@@ -50,22 +44,31 @@ namespace Lucky_Numbers
                 for (int i = 0; (i < userChoiceArray.Length); i++)
                 {
                     userChoiceArray[i] = int.Parse(Console.ReadLine());
+                }
+                while ((userChoiceArray[0] < startNum) || (userChoiceArray[0] > endNum) || (userChoiceArray[1] < startNum) || (userChoiceArray[1] > endNum) || 
+                    (userChoiceArray[2] < startNum) || (userChoiceArray[2] > endNum) || (userChoiceArray[3] < startNum) || (userChoiceArray[3] > endNum) || 
+                    (userChoiceArray[4] < startNum) || (userChoiceArray[4] > endNum) || (userChoiceArray[5] < startNum) || (userChoiceArray[5] > endNum)) 
+                    {
+                    Console.WriteLine("Please enter 6 numbers between " + startNum + " and " + endNum);
                     for (int j = 0; j < userChoiceArray.Length; j++)
                     {
-                        if ((userChoiceArray[i] < startNum) || (userChoiceArray[i] > endNum))// played around with this for a long time, but I was not able to find a solution to 
-                                                                                             //isolate each number that was out of range and just replace that one.  If, in the process of entering the 6 numbers, any number entered is outside of range,
-                                                                                             //the second Console.WriteLine is activated and the user is prompted to repopulate the entire array from index 0.  Would love to find better solution down the road!
-                        {
-                            Console.WriteLine("Please enter 6 numbers between " + startNum + " and " + endNum);
-                            userChoiceArray[i] = int.Parse(Console.ReadLine());
-                        }
 
 
-
-
+                        userChoiceArray[j] = int.Parse(Console.ReadLine());
                     }
+                }//is there a better way to do this? had to take the while statement outside of the previous for statement because the code kept on crashing.  The 12 or statements
+               //seemed like overkill, but it worked.    
 
-                }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -75,7 +78,7 @@ namespace Lucky_Numbers
                 {
 
                     Console.WriteLine("Lucky Number " + (i + 1) + ":  " + lottoNumArray[i]);
-
+                    
                 }
 
 
